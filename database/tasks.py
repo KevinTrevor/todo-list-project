@@ -11,7 +11,7 @@ def insert_task(data):
 
     conn = create_connection()
 
-    sql = "INSERT INTO task (title, create_date) VALUES (?, ?)"
+    sql = "INSERT INTO tasks (title, create_date) VALUES (?, ?)"
 
     try:
 
@@ -28,7 +28,7 @@ def insert_task(data):
             cur.close()
             conn.close()
 
-def select_task_by_id(id):
+def select_task_by_id(_id):
 
     """
         Función que selecciona una fila que coincida con el id
@@ -37,13 +37,12 @@ def select_task_by_id(id):
 
     conn = create_connection()
 
-    sql = f"SELECT * FROM tasks WHERE id = '{id}'"
+    sql = f"SELECT * FROM tasks WHERE id = {_id}"
 
     try:
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
         cur.execute(sql)
-        conn.commit()
         task = dict(cur.fetchone())
 
         return task

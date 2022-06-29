@@ -6,8 +6,6 @@ def read_file(path):
     """
         Función que lee un archivo en un pathing especifico
     y retorna lo leído.
-        
-        return String 
     """
     with open(path, "r") as sql_file:
         return sql_file.read()
@@ -16,8 +14,6 @@ def create_tables():
     """
         Función que crea las tablas de una base de datos a 
         través de código DDL 
-
-        return Bool
     """
 
     conn = create_connection()
